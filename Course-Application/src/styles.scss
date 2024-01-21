@@ -1,0 +1,112 @@
+
+@use '@angular/material' as mat;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-elevation-z7 {
+  box-shadow: 0 4px 5px -2px #0003, 0 7px 10px 1px #00000024, 0 2px 16px 1px #0000001f;
+}
+
+
+@include mat.core();
+
+$dark-primary-text: rgba(black, 0.87);
+
+$light-primary-text: white;
+
+$mat-primary: (
+        50: #e10c0c,
+        100: #e80d0d,
+        200: #e91a1a,
+        300: #f81111,
+        400: rgb(239, 4, 4),
+        500: #e50c0c,
+        600: #ea0f0f,
+        700: #ee1d1d,
+        800: #e81313,
+        900: #f61616,
+        A100: #e40808,
+        A200: #ed1313,
+        A400: #d92316,
+        A700: #d51010,
+        contrast: (
+                50: $dark-primary-text,
+                100: $dark-primary-text,
+                200: $dark-primary-text,
+                300: $light-primary-text,
+                400: $light-primary-text,
+                500: $light-primary-text,
+                600: $light-primary-text,
+                700: $light-primary-text,
+                800: $light-primary-text,
+                900: $light-primary-text,
+                A100: $dark-primary-text,
+                A200: $light-primary-text,
+                A400: $light-primary-text,
+                A700: $light-primary-text,
+        )
+);
+
+$mat-accent: (
+        50: #0c0306,
+        100: #120509,
+        200: rgb(21, 4, 10),
+        300: #1c070e,
+        400: #10080a,
+        500: rgb(12, 4, 7),
+        600: #13090c,
+        700: #11060b,
+        800: #10040a,
+        900: #12040c,
+        A100: #160309,
+        A200: #0d0407,
+        A400: #150309,
+        A700: #0c0106,
+        contrast: (
+                50: $dark-primary-text,
+                100: $dark-primary-text,
+                200: $dark-primary-text,
+                300: $dark-primary-text,
+                400: $dark-primary-text,
+                500: $light-primary-text,
+                600: $light-primary-text,
+                700: $light-primary-text,
+                800: $light-primary-text,
+                900: $light-primary-text,
+                A100: $dark-primary-text,
+                A200: $light-primary-text,
+                A400: $light-primary-text,
+                A700: $light-primary-text,
+        )
+);
+
+
+
+$primary: mat.define-palette($mat-primary, 500);
+
+$accent: mat.define-palette($mat-accent, A200, A100, A400);
+
+$theme: mat.define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+@include mat.all-component-themes($theme);
+
+@import "./mixins";
+
+@include responsive-dialogs();
+
+.highlight-date {
+  background: red;
+}
+
+
+
+
+
